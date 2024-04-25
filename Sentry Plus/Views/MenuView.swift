@@ -33,7 +33,7 @@ struct MenuView: View {
                     }) {
                         HStack {
                             Image(systemName: "envelope.fill")
-                                .foregroundColor(.blue)
+                                .foregroundColor(.secondary)
                             VStack(alignment: .leading, content: {
                                 Text("Contact Us")
                                     .font(.title2)

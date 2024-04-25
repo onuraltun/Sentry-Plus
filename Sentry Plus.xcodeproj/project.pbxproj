@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		080F3D312BD8DDF400D1A9DA /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080F3D302BD8DDF400D1A9DA /* MailComposeViewController.swift */; };
+		080F3D352BD9DC1900D1A9DA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 080F3D342BD9DC1900D1A9DA /* Launch Screen.storyboard */; };
+		080F3D372BDA53F200D1A9DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080F3D362BDA53F200D1A9DA /* ContentView.swift */; };
 		08AA078A2BBBDFDF005B88D6 /* Sentry_PlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AA07892BBBDFDF005B88D6 /* Sentry_PlusApp.swift */; };
 		08AA07902BBBDFE3005B88D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AA078F2BBBDFE3005B88D6 /* Assets.xcassets */; };
 		08AA07932BBBDFE3005B88D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AA07922BBBDFE3005B88D6 /* Preview Assets.xcassets */; };
@@ -21,7 +23,6 @@
 		08D326BB2BD0623200791FF3 /* TeslaToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D326BA2BD0623200791FF3 /* TeslaToken.swift */; };
 		08D326BF2BD254F600791FF3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D326BE2BD254F600791FF3 /* LoginView.swift */; };
 		08D326C12BD257D400791FF3 /* VehiclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D326C02BD257D400791FF3 /* VehiclesView.swift */; };
-		08D326C62BD259DD00791FF3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D326C52BD259DD00791FF3 /* ContentView.swift */; };
 		08D326CB2BD25AED00791FF3 /* EventsChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D326CA2BD25AED00791FF3 /* EventsChartView.swift */; };
 		08D326CF2BD25B8200791FF3 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D326CE2BD25B8200791FF3 /* MenuView.swift */; };
 		08D326D12BD2737B00791FF3 /* VehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D326D02BD2737B00791FF3 /* VehicleView.swift */; };
@@ -47,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		080F3D302BD8DDF400D1A9DA /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
+		080F3D342BD9DC1900D1A9DA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		080F3D362BDA53F200D1A9DA /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		08AA07862BBBDFDF005B88D6 /* Sentry Plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sentry Plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AA07892BBBDFDF005B88D6 /* Sentry_PlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentry_PlusApp.swift; sourceTree = "<group>"; };
 		08AA078F2BBBDFE3005B88D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,7 +68,6 @@
 		08D326BA2BD0623200791FF3 /* TeslaToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeslaToken.swift; sourceTree = "<group>"; };
 		08D326BE2BD254F600791FF3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		08D326C02BD257D400791FF3 /* VehiclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesView.swift; sourceTree = "<group>"; };
-		08D326C52BD259DD00791FF3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../../../../.Trash/ContentView.swift; sourceTree = "<group>"; };
 		08D326CA2BD25AED00791FF3 /* EventsChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsChartView.swift; sourceTree = "<group>"; };
 		08D326CE2BD25B8200791FF3 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		08D326D02BD2737B00791FF3 /* VehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
@@ -161,7 +163,7 @@
 		08D326C32BD259A100791FF3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				08D326C52BD259DD00791FF3 /* ContentView.swift */,
+				080F3D362BDA53F200D1A9DA /* ContentView.swift */,
 				08D326BE2BD254F600791FF3 /* LoginView.swift */,
 				08D326C02BD257D400791FF3 /* VehiclesView.swift */,
 				08D326CA2BD25AED00791FF3 /* EventsChartView.swift */,
@@ -169,6 +171,7 @@
 				08D326D02BD2737B00791FF3 /* VehicleView.swift */,
 				08D326D22BD273CE00791FF3 /* VehicleRow.swift */,
 				080F3D302BD8DDF400D1A9DA /* MailComposeViewController.swift */,
+				080F3D342BD9DC1900D1A9DA /* Launch Screen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				080F3D352BD9DC1900D1A9DA /* Launch Screen.storyboard in Resources */,
 				08AA07932BBBDFE3005B88D6 /* Preview Assets.xcassets in Resources */,
 				08AA07902BBBDFE3005B88D6 /* Assets.xcassets in Resources */,
 			);
@@ -315,7 +319,7 @@
 			files = (
 				080F3D312BD8DDF400D1A9DA /* MailComposeViewController.swift in Sources */,
 				08D326B32BCFA39900791FF3 /* Vehicle.swift in Sources */,
-				08D326C62BD259DD00791FF3 /* ContentView.swift in Sources */,
+				080F3D372BDA53F200D1A9DA /* ContentView.swift in Sources */,
 				08C37C4E2BC5EF5B00CC0313 /* AppDelegate.swift in Sources */,
 				08D326B72BCFE1BD00791FF3 /* AppViewModel.swift in Sources */,
 				08D326BF2BD254F600791FF3 /* LoginView.swift in Sources */,
@@ -487,6 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Sentry Plus/Sentry Plus.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -495,12 +500,14 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Sentry-Plus-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Sentry Plus";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -523,6 +530,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Sentry Plus/Sentry Plus.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -531,12 +539,14 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Sentry-Plus-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Sentry Plus";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

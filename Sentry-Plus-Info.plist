@@ -8,7 +8,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>sentry-plus</string>
+			<string>com.altun.sentry-plus</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>sentry-plus</string>

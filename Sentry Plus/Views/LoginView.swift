@@ -10,7 +10,7 @@ import SwiftUI
 import AuthenticationServices
 
 let AUTH_URL = "https://sentry-plus.com/authViaTesla"
-let REDIRECT_URI = "sentry-plus"
+let REDIRECT_URI = "sentryPlus"
 
 
 class AuthenticationSessionManager: NSObject, ASWebAuthenticationPresentationContextProviding {

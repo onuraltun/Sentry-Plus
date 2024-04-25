@@ -8,10 +8,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>sentry-plus</string>
+			<string>sentryPlus</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>sentry-plus://oauth/callback</string>
+				<string>sentryPlus://oauth/callback</string>
 			</array>
 		</dict>
 	</array>

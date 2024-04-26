@@ -50,6 +50,7 @@
 		080F3D302BD8DDF400D1A9DA /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		080F3D342BD9DC1900D1A9DA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		080F3D362BDA53F200D1A9DA /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		081447F22BDB081000590DA3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		08AA07862BBBDFDF005B88D6 /* Sentry Plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sentry Plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AA07892BBBDFDF005B88D6 /* Sentry_PlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentry_PlusApp.swift; sourceTree = "<group>"; };
 		08AA078F2BBBDFE3005B88D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 		08AA077D2BBBDFDF005B88D6 = {
 			isa = PBXGroup;
 			children = (
+				081447F22BDB081000590DA3 /* PrivacyInfo.xcprivacy */,
 				08AA07882BBBDFDF005B88D6 /* Sentry Plus */,
 				08AA079B2BBBDFE3005B88D6 /* Sentry PlusTests */,
 				08AA07A52BBBDFE3005B88D6 /* Sentry PlusUITests */,

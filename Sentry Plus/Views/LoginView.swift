@@ -52,7 +52,7 @@ struct LoginView:View {
                 authSession?.start()
             }
         }) {
-            Text("Login Via Tesla")
+            Text("Login With Your Tesla Account")
                 .padding()
                 .background(Color.blue)
                 .foregroundColor(Color.white)

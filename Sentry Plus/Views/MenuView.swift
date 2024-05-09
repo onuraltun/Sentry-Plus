@@ -12,14 +12,15 @@ import UIKit
 
 struct MenuView: View {
     @EnvironmentObject var appViewModel: AppViewModel
+    @State private var teslaApi = TeslaApi(appViewModel: AppViewModel())
     
     var body: some View {
         HStack (alignment: .top, content: {
             VStack(alignment: .center, content: {
                 Image("pluslogo")
                     .resizable()
-                    .frame(width: 200)
-                    .aspectRatio(1.6, contentMode: .fit)
+                    .aspectRatio(1, contentMode: .fit)
+                    .padding()
                 
                 Text("Sentry Plus")
                     .font(.largeTitle)
@@ -61,6 +62,8 @@ struct MenuView: View {
                     }
                     
                     Button(action: {
+                        teslaApi.logout();
+                        
                         UserDefaults.standard.removeObject(forKey: "accessToken")
                         UserDefaults.standard.removeObject(forKey: "refreshToken")
                         

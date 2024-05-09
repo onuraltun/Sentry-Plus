@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class AppViewModel: ObservableObject {
     @Published var accessToken: String = ""
@@ -13,6 +14,8 @@ class AppViewModel: ObservableObject {
     @Published var vehicles: [Vehicle] = []
     @Published var isMenuOpen = false
     @Published var isLoading = false
+    @Published var sentryData = [String: [SentryData]]()
+    @Published var vehicleConfigs = [String: VehicleConfig]()
     
     init() {
         if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {

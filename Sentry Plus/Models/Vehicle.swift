@@ -23,13 +23,10 @@ struct Vehicle: Codable, Identifiable {
     let apiVersion: Int
     let backseatToken: String?
     let backseatTokenUpdatedAt: String?
-    let isConfigured: Bool?
-    var sendPushNotification: Bool? = false
-    var hornOnState: Bool? = false
     
-    init(id: Int64, vin: String, displayName: String, state: String, isConfigured: Bool?, sendPushNotification: Bool, hornOnState: Bool) {
+    init(id: Int64, vin: String, displayName: String, state: String) {
         self.id = id
-        self.vehicleId = 123456789
+        self.vehicleId = 0
         self.vin = vin
         self.color = ""
         self.accessType = ""
@@ -43,9 +40,6 @@ struct Vehicle: Codable, Identifiable {
         self.apiVersion = 1
         self.backseatToken = ""
         self.backseatTokenUpdatedAt = ""
-        self.isConfigured = isConfigured
-        self.sendPushNotification = sendPushNotification
-        self.hornOnState = hornOnState
     }
 
     enum CodingKeys: String, CodingKey {
@@ -64,9 +58,6 @@ struct Vehicle: Codable, Identifiable {
         case apiVersion = "api_Version"
         case backseatToken = "backseat_Token"
         case backseatTokenUpdatedAt = "backseat_Token_Updated_At"
-        case isConfigured = "is_Configured"
-        case sendPushNotification = "send_Push_Notification"
-        case hornOnState = "horn_On_State"
     }
 }
 

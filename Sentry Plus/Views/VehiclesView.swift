@@ -37,7 +37,17 @@ struct VehiclesView: View {
             VStack{
                 List(self.appViewModel.vehicles, id: \.vin, selection: $selectedIndex)
                 { vehicle in
-                    NavigationLink(destination: VehicleView(vehicle: vehicle)) {
+                    NavigationLink(destination: VehicleView(vehicle: vehicle,
+                                            teslaApi: self.teslaApi,
+                                                            sendPushNotification: Binding(
+                                                                get : { self.appViewModel.vehicleConfigs
+                                                                    .first(where: { $0.key == vehicle.vin })?.value.sendPushNotification ?? false },
+                                                                set: { newValue in
+                                                                    teslaApi.SetPushNotification(vin: vehicle.vin, status: newValue)
+                                                                    teslaApi.getConfig(vin: vehicle.vin)
+                                                                })
+                                                           )
+                        ) {
                         VehicleRow(vehicle: vehicle)
                     }
                 }

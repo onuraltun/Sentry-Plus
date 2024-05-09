@@ -34,10 +34,6 @@ struct VehicleRow: View {
             .padding(.bottom)
             .padding(.top)
             
-            Text("Events")
-                .font(.headline)
-                .padding(.bottom)
-            
             EventsChartView(vin: vehicle.vin)
                 .padding(.bottom)
         }

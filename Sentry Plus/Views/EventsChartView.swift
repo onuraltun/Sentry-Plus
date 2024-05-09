@@ -8,37 +8,49 @@
 import SwiftUI
 import Charts
 
-struct SentryEvent: Identifiable {
-    var eventDate: Date
-    var state: String
-    var duration: Int
-    var id = UUID()
-}
-
 struct EventsChartView: View {
-    @State var sentryEvents: [SentryEvent] = [
-        SentryEvent(eventDate: Date(), state: "off", duration: 10),
-        SentryEvent(eventDate: Date().addingTimeInterval(864), state: "online", duration: 20),
-        SentryEvent(eventDate: Date().addingTimeInterval(864 * 2), state: "off", duration: 30),
-        SentryEvent(eventDate: Date().addingTimeInterval(864 * 3), state: "online", duration: 40),
-        SentryEvent(eventDate: Date().addingTimeInterval(864 * 4), state: "Aware", duration: 10),
-        SentryEvent(eventDate: Date().addingTimeInterval(864 * 5), state: "online", duration: 60),
-        SentryEvent(eventDate: Date().addingTimeInterval(864 * 6), state: "Aware", duration: 2),
-        SentryEvent(eventDate: Date().addingTimeInterval(864 * 7), state: "online", duration: 10),
-        SentryEvent(eventDate: Date().addingTimeInterval(864 * 8), state: "off", duration: 10),
-        SentryEvent(eventDate: Date().addingTimeInterval(864 * 9), state: "online", duration: 10),
-    ]
-
+    @EnvironmentObject var appViewModel: AppViewModel
     let vin: String?
     
     var body: some View {
-        Chart(sentryEvents, id: \.eventDate) { element in
-          BarMark(
-            x: .value("Date", element.eventDate),
-            width: MarkDimension(integerLiteral: element.duration),
-            stacking: MarkStackingMethod.unstacked
-          )
-          .foregroundStyle(by: .value("State", element.state))
+        EventChart(headerTitle: "Events",
+                   events: getSentryEvents(),
+                   chartXScaleRangeStart: getStartOfEvents(),
+                   chartXScaleRangeEnd: getEndOfEvents())
+    }
+    
+    func getSentryEvents() -> [SentryData] {
+        let firstDate = Date()
+        
+        var sentryEvents = [
+            SentryData(vin: vin ?? "", state: "Aware", createdAt: firstDate, finishedAt: firstDate),
+            SentryData(vin: vin ?? "", state: "Armed", createdAt: firstDate, finishedAt: firstDate),
+            SentryData(vin: vin ?? "", state: "Idle", createdAt: firstDate, finishedAt: firstDate),
+            SentryData(vin: vin ?? "", state: "Off", createdAt: firstDate, finishedAt: firstDate)
+        ]
+        
+        if let index = self.appViewModel.sentryData.firstIndex(where: { $0.0 == vin }) {
+            sentryEvents.append(contentsOf: self.appViewModel.sentryData[index].1)
+            
+            return sentryEvents
+        } else {
+            return sentryEvents
+        }
+    }
+    
+    func getStartOfEvents() -> Date {
+        if let events = getSentryEvents().sorted(by: { $0.createdAt < $1.createdAt }).first {
+            return events.createdAt
+        } else {
+            return Date()
+        }
+    }
+    
+    func getEndOfEvents() -> Date {
+        if let events = getSentryEvents().sorted(by: { $0.finishedAt ?? Date() < $1.finishedAt ?? Date() }).last {
+            return events.createdAt
+        } else {
+            return Date()
         }
     }
 }

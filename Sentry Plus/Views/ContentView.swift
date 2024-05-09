@@ -30,7 +30,6 @@ struct ContentView: View {
                                 NavigationLink(destination: MenuView()) {
                                     Image(systemName: "line.horizontal.3")
                                         .imageScale(.large)
-                                        .padding(.top)
                                 }
                             ), trailing: {
                                 if appViewModel.isLoading {
@@ -48,13 +47,13 @@ struct ContentView: View {
                                                 .resizable()
                                                 .scaledToFit()
                                                 .frame(width: 25, height: 25)
-                                                .padding(.top)
                                         })
                                     )
                                 }
                             }())
                             .offset(x: appViewModel.isMenuOpen ? 250 : 0, y: 0)
                             .animation(.default)
+                            .navigationBarTitle("Sentry Plus", displayMode: .inline)
                     }
                 }
             }

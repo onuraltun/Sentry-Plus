@@ -3,13 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0809EA5F2BDFF463007521D6 /* SentryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0809EA5E2BDFF463007521D6 /* SentryData.swift */; };
+		0809EA742BE195D2007521D6 /* TimeSheetBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0809EA732BE195D2007521D6 /* TimeSheetBar.swift */; };
 		080F3D312BD8DDF400D1A9DA /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080F3D302BD8DDF400D1A9DA /* MailComposeViewController.swift */; };
 		080F3D352BD9DC1900D1A9DA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 080F3D342BD9DC1900D1A9DA /* Launch Screen.storyboard */; };
 		080F3D372BDA53F200D1A9DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080F3D362BDA53F200D1A9DA /* ContentView.swift */; };
+		081CCA872BE8BEAC00C4CA95 /* VehicleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CCA862BE8BEAC00C4CA95 /* VehicleConfig.swift */; };
 		08AA078A2BBBDFDF005B88D6 /* Sentry_PlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AA07892BBBDFDF005B88D6 /* Sentry_PlusApp.swift */; };
 		08AA07902BBBDFE3005B88D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AA078F2BBBDFE3005B88D6 /* Assets.xcassets */; };
 		08AA07932BBBDFE3005B88D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AA07922BBBDFE3005B88D6 /* Preview Assets.xcassets */; };
@@ -47,10 +50,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0809EA5E2BDFF463007521D6 /* SentryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentryData.swift; sourceTree = "<group>"; };
+		0809EA732BE195D2007521D6 /* TimeSheetBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetBar.swift; sourceTree = "<group>"; };
 		080F3D302BD8DDF400D1A9DA /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		080F3D342BD9DC1900D1A9DA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		080F3D362BDA53F200D1A9DA /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		081447F22BDB081000590DA3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		081CCA862BE8BEAC00C4CA95 /* VehicleConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleConfig.swift; sourceTree = "<group>"; };
 		08AA07862BBBDFDF005B88D6 /* Sentry Plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sentry Plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AA07892BBBDFDF005B88D6 /* Sentry_PlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentry_PlusApp.swift; sourceTree = "<group>"; };
 		08AA078F2BBBDFE3005B88D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 		08D326C32BD259A100791FF3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0809EA732BE195D2007521D6 /* TimeSheetBar.swift */,
 				080F3D362BDA53F200D1A9DA /* ContentView.swift */,
 				08D326BE2BD254F600791FF3 /* LoginView.swift */,
 				08D326C02BD257D400791FF3 /* VehiclesView.swift */,
@@ -184,6 +191,8 @@
 				08D326BA2BD0623200791FF3 /* TeslaToken.swift */,
 				08D326B62BCFE1BD00791FF3 /* AppViewModel.swift */,
 				08D326B22BCFA39900791FF3 /* Vehicle.swift */,
+				0809EA5E2BDFF463007521D6 /* SentryData.swift */,
+				081CCA862BE8BEAC00C4CA95 /* VehicleConfig.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -268,7 +277,7 @@
 				};
 			};
 			buildConfigurationList = 08AA07812BBBDFDF005B88D6 /* Build configuration list for PBXProject "Sentry Plus" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -325,9 +334,12 @@
 				08C37C4E2BC5EF5B00CC0313 /* AppDelegate.swift in Sources */,
 				08D326B72BCFE1BD00791FF3 /* AppViewModel.swift in Sources */,
 				08D326BF2BD254F600791FF3 /* LoginView.swift in Sources */,
+				0809EA5F2BDFF463007521D6 /* SentryData.swift in Sources */,
 				08D326CB2BD25AED00791FF3 /* EventsChartView.swift in Sources */,
 				08D326B52BCFD44500791FF3 /* TeslaApi.swift in Sources */,
+				081CCA872BE8BEAC00C4CA95 /* VehicleConfig.swift in Sources */,
 				08D326D12BD2737B00791FF3 /* VehicleView.swift in Sources */,
+				0809EA742BE195D2007521D6 /* TimeSheetBar.swift in Sources */,
 				08D326CF2BD25B8200791FF3 /* MenuView.swift in Sources */,
 				08D326C12BD257D400791FF3 /* VehiclesView.swift in Sources */,
 				08D326D32BD273CE00791FF3 /* VehicleRow.swift in Sources */,

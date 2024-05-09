@@ -62,13 +62,17 @@ struct MenuView: View {
                     }
                     
                     Button(action: {
-                        teslaApi.logout();
+                        let accessToken = UserDefaults.standard.string(forKey: "accessToken")
+                        teslaApi.logout(accessToken: accessToken ?? "")
+                        
+                        self.appViewModel.vehicles.removeAll()
+                        self.appViewModel.sentryData.removeAll()
                         
                         UserDefaults.standard.removeObject(forKey: "accessToken")
                         UserDefaults.standard.removeObject(forKey: "refreshToken")
                         
-                        appViewModel.accessToken = ""
-                        appViewModel.refreshToken = ""
+                        self.appViewModel.accessToken = ""
+                        self.appViewModel.refreshToken = ""
                     }) {
                         HStack {
                             Image(systemName: "lock.fill")

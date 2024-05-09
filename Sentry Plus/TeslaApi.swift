@@ -23,6 +23,30 @@ struct TeslaApi{
         
         let accessToken = UserDefaults.standard.string(forKey: "accessToken")
         
+        if(accessToken == "demo"){
+            let vehicles = [
+                Vehicle(id: 1, vin: "demo", displayName: "Demo", state: "asleep"),
+            ]
+            let sentryData = [
+                SentryData(vin: "demo", state: "Off", createdAt: Date().addingTimeInterval(-6600), finishedAt: Date().addingTimeInterval(-3600)),
+                SentryData(vin: "demo", state: "Armed", createdAt: Date().addingTimeInterval(-3600), finishedAt: Date().addingTimeInterval(-1800)),
+                SentryData(vin: "demo", state: "Aware", createdAt: Date().addingTimeInterval(-1800), finishedAt: Date().addingTimeInterval(-200)),
+                SentryData(vin: "demo", state: "Idle", createdAt: Date().addingTimeInterval(-200), finishedAt: Date().addingTimeInterval(0)),
+            ]
+            
+            DispatchQueue.main.async {
+                self.appViewModel.vehicles = vehicles
+                let jsonEncoder = JSONEncoder()
+                if let jsonData = try? jsonEncoder.encode(vehicles) {
+                    UserDefaults.standard.set(jsonData, forKey: "vehicles")
+                }
+                self.appViewModel.sentryData["demo"] = sentryData
+                self.appViewModel.isLoading = false
+            }
+            
+            return
+        }
+        
         if accessToken == nil {
             print("Access token is nil")
             self.appViewModel.vehicles = []
@@ -231,8 +255,11 @@ struct TeslaApi{
         task.resume()
     }
     
-    func logout(){
-        let accessToken = UserDefaults.standard.string(forKey: "accessToken")
+    func logout(accessToken: String?){
+        if( accessToken == nil || accessToken!.isEmpty ){
+            print("Access token is nil or empty")
+            return
+        }
         
         for vehicle in appViewModel.vehicles {
             let vin = vehicle.vin
@@ -255,7 +282,7 @@ struct TeslaApi{
                 
                 switch httpResponse.statusCode {
                 case 200..<300:
-                    print("Logout successful")
+                    print("Logged out")
                 default:
                     print("Unexpected error. Code: \(httpResponse.statusCode)")
                 }

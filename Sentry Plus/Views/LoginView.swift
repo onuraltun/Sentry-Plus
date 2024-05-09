@@ -82,6 +82,14 @@ struct LoginView:View {
             }
             .buttonStyle(PlainButtonStyle())
             .padding()
+            
+            Button(action: {
+                appViewModel.accessToken = "demo"
+                UserDefaults.standard.set(appViewModel.accessToken, forKey : "accessToken")
+            }) {
+                Text("Demo Mode")
+                    .padding()
+            }
         }
     }
 }

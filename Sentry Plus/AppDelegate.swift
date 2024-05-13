@@ -1,7 +1,7 @@
 import UIKit
 import UserNotifications
 
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     let teslaApi = TeslaApi(appViewModel: AppViewModel())
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         application.registerForRemoteNotifications()
         
+        UNUserNotificationCenter.current().delegate = self
+        
         return true
     }
     
@@ -41,6 +43,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+            let appURL = URL(string: "tesla://")
+            UIApplication.shared.open(appURL!, options: [:], completionHandler: nil)
+            
+            completionHandler()
+        }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         teslaApi.GetVehicles()

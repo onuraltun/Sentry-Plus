@@ -13,5 +13,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "AppDelegate.userNotificationCenter(_:didReceive:withCompletionHandler:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIApplication.shared.canOpenURL(appURL)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

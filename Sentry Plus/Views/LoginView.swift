@@ -66,7 +66,7 @@ struct LoginView:View {
                             UserDefaults.standard.set(appViewModel.accessToken, forKey : "accessToken")
                             UserDefaults.standard.set(appViewModel.refreshToken, forKey : "refreshToken")
                             
-                            self.teslaApi!.GetVehicles(saveApnc: true)
+                            addVirtualKey()
                         }
                     }
                     authSession?.prefersEphemeralWebBrowserSession = true
@@ -90,6 +90,26 @@ struct LoginView:View {
                 Text("Demo Mode")
                     .padding()
             }
+        }
+    }
+    
+    func addVirtualKey() {
+        let appURL = URL(string: "https://tesla.com/_ak/sentry-plus.com")!
+
+        if UIApplication.shared.canOpenURL(appURL) {
+            UIApplication.shared.open(appURL, options: [:], completionHandler: { (success) in
+                if success {
+                    print("Opened Tesla app for add virtual key")
+                    self.teslaApi!.GetVehicles(saveApnc: true)
+                } else {
+                    print("Could not open Tesla app for add virtual key")
+                    let alert = UIAlertController(title: "Error", message: "Could not open Tesla app for add virtual key", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
+            })
+        } else {
+            print("Could not open Tesla app for add virtual key")
         }
     }
 }

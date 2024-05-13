@@ -44,6 +44,8 @@ struct Sentry_PlusApp: App {
                         
                         teslaApi!.GetVehicles()
                     }
+                    
+                    teslaApi!.GetVehicles()
                 }
         }
         .modelContainer(sharedModelContainer)

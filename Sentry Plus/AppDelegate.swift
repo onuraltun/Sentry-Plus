@@ -13,7 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     application.registerForRemoteNotifications()
                 }
             } else {
-                print("Notification permission denied")
+                DispatchQueue.main.async {
+                    print("Notification permission denied")
+                    
+                    let alert = UIAlertController(title: "Error", message: "Push notification permission denied. Please enable push notifications in Settings for getting alerts.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
             }
         }
         application.registerForRemoteNotifications()
@@ -28,7 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register for remote notifications: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            print("Failed to register for push notifications: \(error.localizedDescription)")
+            let alert = UIAlertController(title: "Error", message: "Failed to register for push notifications: \(error.localizedDescription). Please try again later.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {

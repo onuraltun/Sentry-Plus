@@ -13,6 +13,8 @@
 		080F3D352BD9DC1900D1A9DA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 080F3D342BD9DC1900D1A9DA /* Launch Screen.storyboard */; };
 		080F3D372BDA53F200D1A9DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080F3D362BDA53F200D1A9DA /* ContentView.swift */; };
 		081CCA872BE8BEAC00C4CA95 /* VehicleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081CCA862BE8BEAC00C4CA95 /* VehicleConfig.swift */; };
+		088CCE6F2C0F9B200055D6B8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088CCE6E2C0F9B200055D6B8 /* NotificationService.swift */; };
+		088CCE732C0F9B200055D6B8 /* Notifications.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 088CCE6C2C0F9B200055D6B8 /* Notifications.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		08AA078A2BBBDFDF005B88D6 /* Sentry_PlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AA07892BBBDFDF005B88D6 /* Sentry_PlusApp.swift */; };
 		08AA07902BBBDFE3005B88D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AA078F2BBBDFE3005B88D6 /* Assets.xcassets */; };
 		08AA07932BBBDFE3005B88D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AA07922BBBDFE3005B88D6 /* Preview Assets.xcassets */; };
@@ -33,6 +35,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		088CCE712C0F9B200055D6B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08AA077E2BBBDFDF005B88D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 088CCE6B2C0F9B200055D6B8;
+			remoteInfo = Notifications;
+		};
 		08AA07992BBBDFE3005B88D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08AA077E2BBBDFDF005B88D6 /* Project object */;
@@ -49,6 +58,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		088CCE742C0F9B200055D6B8 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				088CCE732C0F9B200055D6B8 /* Notifications.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0809EA5E2BDFF463007521D6 /* SentryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentryData.swift; sourceTree = "<group>"; };
 		0809EA732BE195D2007521D6 /* TimeSheetBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetBar.swift; sourceTree = "<group>"; };
@@ -57,6 +80,9 @@
 		080F3D362BDA53F200D1A9DA /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		081447F22BDB081000590DA3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		081CCA862BE8BEAC00C4CA95 /* VehicleConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleConfig.swift; sourceTree = "<group>"; };
+		088CCE6C2C0F9B200055D6B8 /* Notifications.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Notifications.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		088CCE6E2C0F9B200055D6B8 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		088CCE702C0F9B200055D6B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08AA07862BBBDFDF005B88D6 /* Sentry Plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sentry Plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AA07892BBBDFDF005B88D6 /* Sentry_PlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentry_PlusApp.swift; sourceTree = "<group>"; };
 		08AA078F2BBBDFE3005B88D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +108,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		088CCE692C0F9B200055D6B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		08AA07832BBBDFDF005B88D6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -106,6 +139,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		088CCE6D2C0F9B200055D6B8 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				088CCE6E2C0F9B200055D6B8 /* NotificationService.swift */,
+				088CCE702C0F9B200055D6B8 /* Info.plist */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		08AA077D2BBBDFDF005B88D6 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +155,7 @@
 				08AA07882BBBDFDF005B88D6 /* Sentry Plus */,
 				08AA079B2BBBDFE3005B88D6 /* Sentry PlusTests */,
 				08AA07A52BBBDFE3005B88D6 /* Sentry PlusUITests */,
+				088CCE6D2C0F9B200055D6B8 /* Notifications */,
 				08AA07872BBBDFDF005B88D6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,6 +166,7 @@
 				08AA07862BBBDFDF005B88D6 /* Sentry Plus.app */,
 				08AA07982BBBDFE3005B88D6 /* Sentry PlusTests.xctest */,
 				08AA07A22BBBDFE3005B88D6 /* Sentry PlusUITests.xctest */,
+				088CCE6C2C0F9B200055D6B8 /* Notifications.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,6 +244,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		088CCE6B2C0F9B200055D6B8 /* Notifications */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 088CCE772C0F9B200055D6B8 /* Build configuration list for PBXNativeTarget "Notifications" */;
+			buildPhases = (
+				088CCE682C0F9B200055D6B8 /* Sources */,
+				088CCE692C0F9B200055D6B8 /* Frameworks */,
+				088CCE6A2C0F9B200055D6B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Notifications;
+			productName = Notifications;
+			productReference = 088CCE6C2C0F9B200055D6B8 /* Notifications.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		08AA07852BBBDFDF005B88D6 /* Sentry Plus */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08AA07AC2BBBDFE3005B88D6 /* Build configuration list for PBXNativeTarget "Sentry Plus" */;
@@ -207,10 +268,12 @@
 				08AA07822BBBDFDF005B88D6 /* Sources */,
 				08AA07832BBBDFDF005B88D6 /* Frameworks */,
 				08AA07842BBBDFDF005B88D6 /* Resources */,
+				088CCE742C0F9B200055D6B8 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				088CCE722C0F9B200055D6B8 /* PBXTargetDependency */,
 			);
 			name = "Sentry Plus";
 			productName = "Sentry Plus";
@@ -260,9 +323,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					088CCE6B2C0F9B200055D6B8 = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					08AA07852BBBDFDF005B88D6 = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -292,11 +358,19 @@
 				08AA07852BBBDFDF005B88D6 /* Sentry Plus */,
 				08AA07972BBBDFE3005B88D6 /* Sentry PlusTests */,
 				08AA07A12BBBDFE3005B88D6 /* Sentry PlusUITests */,
+				088CCE6B2C0F9B200055D6B8 /* Notifications */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		088CCE6A2C0F9B200055D6B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		08AA07842BBBDFDF005B88D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -324,6 +398,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		088CCE682C0F9B200055D6B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				088CCE6F2C0F9B200055D6B8 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		08AA07822BBBDFDF005B88D6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,6 +450,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		088CCE722C0F9B200055D6B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 088CCE6B2C0F9B200055D6B8 /* Notifications */;
+			targetProxy = 088CCE712C0F9B200055D6B8 /* PBXContainerItemProxy */;
+		};
 		08AA079A2BBBDFE3005B88D6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 08AA07852BBBDFDF005B88D6 /* Sentry Plus */;
@@ -381,6 +468,60 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		088CCE752C0F9B200055D6B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.2;
+				DEVELOPMENT_TEAM = GYNACX2BSZ;
+				DYLIB_CURRENT_VERSION = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Notifications/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Notifications;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.altun.Sentry-Plus.Notifications";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		088CCE762C0F9B200055D6B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.2;
+				DEVELOPMENT_TEAM = GYNACX2BSZ;
+				DYLIB_CURRENT_VERSION = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Notifications/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Notifications;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.altun.Sentry-Plus.Notifications";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		08AA07AA2BBBDFE3005B88D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -415,7 +556,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_CURRENT_VERSION = 1.2;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -435,6 +578,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -478,7 +622,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_CURRENT_VERSION = 1.2;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -492,6 +638,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -503,12 +650,13 @@
 		08AA07AD2BBBDFE3005B88D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Sentry Plus/Sentry Plus.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_ASSET_PATHS = "\"Sentry Plus/Preview Content\"";
 				DEVELOPMENT_TEAM = GYNACX2BSZ;
 				ENABLE_PREVIEWS = YES;
@@ -526,7 +674,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.altun.Sentry-Plus";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -542,12 +690,13 @@
 		08AA07AE2BBBDFE3005B88D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Sentry Plus/Sentry Plus.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_ASSET_PATHS = "\"Sentry Plus/Preview Content\"";
 				DEVELOPMENT_TEAM = GYNACX2BSZ;
 				ENABLE_PREVIEWS = YES;
@@ -565,7 +714,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.altun.Sentry-Plus";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -585,7 +734,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 48QB6J4N93;
+				DEVELOPMENT_TEAM = GYNACX2BSZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
@@ -605,7 +754,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 48QB6J4N93;
+				DEVELOPMENT_TEAM = GYNACX2BSZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
@@ -624,7 +773,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 48QB6J4N93;
+				DEVELOPMENT_TEAM = GYNACX2BSZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "altun.Sentry-PlusUITests";
@@ -642,7 +791,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 48QB6J4N93;
+				DEVELOPMENT_TEAM = GYNACX2BSZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "altun.Sentry-PlusUITests";
@@ -657,6 +806,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		088CCE772C0F9B200055D6B8 /* Build configuration list for PBXNativeTarget "Notifications" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				088CCE752C0F9B200055D6B8 /* Debug */,
+				088CCE762C0F9B200055D6B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		08AA07812BBBDFDF005B88D6 /* Build configuration list for PBXProject "Sentry Plus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

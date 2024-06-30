@@ -13,7 +13,7 @@ struct VehicleView: View {
     @State var vehicle: Vehicle
     @State var teslaApi = TeslaApi(appViewModel: AppViewModel())
     
-    @Binding var sendPushNotification: Bool
+    @Binding var vehicleConfig: VehicleConfig
     
     var body: some View {
         HStack(alignment: .top, content: {
@@ -40,9 +40,18 @@ struct VehicleView: View {
                     })
                 }
                 
-                Toggle("Send a push notification on Sentry Mode activated",
-                       isOn: $sendPushNotification)
-                    .padding()
+                Text("Sentry Event Actions")
+                    .font(.largeTitle)
+                    .padding(.horizontal)
+                
+                Toggle("Send a push notification",
+                       isOn: $vehicleConfig.sendPushNotification).padding()
+                
+                Toggle("Honk horn",
+                       isOn: $vehicleConfig.honkHorn).padding()
+                       
+                Toggle("Flash lights",
+                       isOn:$vehicleConfig.flashLights).padding()
                 
                 Text("Last Sentry Events")
                     .font(.largeTitle)
@@ -76,7 +85,7 @@ struct VehicleView_Previews: PreviewProvider {
     static var previews: some View {
         let vehicle = Vehicle(id: 1, vin: "5YJ3E1EA8JF006588", displayName: "Model 3", state: "online")
         
-        VehicleView(vehicle: vehicle, sendPushNotification: .constant(false))
+        VehicleView(vehicle: vehicle, vehicleConfig: .constant(VehicleConfig(vin: "5YJ3E1EA8JF006588", sendPushNotification: false, honkHorn: false, flashLights: false)))
             .environmentObject(AppViewModel())
     }
 }

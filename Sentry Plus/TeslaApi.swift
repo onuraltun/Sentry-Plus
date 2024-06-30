@@ -292,7 +292,7 @@ struct TeslaApi{
         }
     }
     
-    func SetPushNotification(vin:String, status:Bool){
+    func SetConfig(vin:String, pushNotifications: Bool, honkHorn: Bool, flashLights: Bool){
         let accessToken = UserDefaults.standard
             .string(forKey: "accessToken")
         
@@ -301,7 +301,7 @@ struct TeslaApi{
             return
         }
         
-        let newVehicleConfig = VehicleConfig(vin: vin, sendPushNotification: status)
+        let newVehicleConfig = VehicleConfig(vin: vin, sendPushNotification: pushNotifications, honkHorn: honkHorn, flashLights: flashLights)
         let newVehicleConfigJson = try! JSONSerialization.jsonObject(with: try! JSONEncoder().encode(newVehicleConfig)) as! [String: Any]
         let sentryDataURL = URL(string: "https://sentry-plus.com/api/setConfig/\(vin)")!
         var request = URLRequest(url: sentryDataURL)
@@ -383,6 +383,126 @@ struct TeslaApi{
             case 401:
                 print("Unauthorized. Refreshing token...")
                 self.RefreshToken()
+            default:
+                print("Unexpected error. Code: \(httpResponse.statusCode)")
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func HonkHorn(vin: String, retry: Bool = false){
+        let accessToken = UserDefaults.standard.string(forKey: "accessToken")
+        
+        if accessToken == nil {
+            print("Access token is nil")
+            return
+        }
+        
+        let sentryDataURL = URL(string: "https://sentry-plus.com/api/honkHorn/\(vin)")!
+        var request = URLRequest(url: sentryDataURL)
+        request.httpMethod = "POST"
+        request.addValue("Bearer " + accessToken!, forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("Couldn't get response")
+                return
+            }
+            
+            switch httpResponse.statusCode {
+            case 200..<300:
+                print("Honk horn successful")
+            case 401:
+                print("Unauthorized. Refreshing token...")
+                self.RefreshToken()
+                if retry {
+                    self.HonkHorn(vin: vin, retry: false)
+                }
+            default:
+                print("Unexpected error. Code: \(httpResponse.statusCode)")
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func FlashLights(vin: String, retry: Bool = false){
+        let accessToken = UserDefaults.standard.string(forKey: "accessToken")
+        
+        if accessToken == nil {
+            print("Access token is nil")
+            return
+        }
+        
+        let sentryDataURL = URL(string: "https://sentry-plus.com/api/flashLights/\(vin)")!
+        var request = URLRequest(url: sentryDataURL)
+        request.httpMethod = "POST"
+        request.addValue("Bearer " + accessToken!, forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("Couldn't get response")
+                return
+            }
+            
+            switch httpResponse.statusCode {
+            case 200..<300:
+                print("Flash lights successful")
+            case 401:
+                print("Unauthorized. Refreshing token...")
+                self.RefreshToken()
+                if retry {
+                    self.FlashLights(vin: vin, retry: false)
+                }
+            default:
+                print("Unexpected error. Code: \(httpResponse.statusCode)")
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func RemoteBoombox(vin: String, retry: Bool){
+        let accessToken = UserDefaults.standard.string(forKey: "accessToken")
+        
+        if accessToken == nil {
+            print("Access token is nil")
+            return
+        }
+        
+        let sentryDataURL = URL(string: "https://sentry-plus.com/api/remoteBoombox/\(vin)")!
+        var request = URLRequest(url: sentryDataURL)
+        request.httpMethod = "POST"
+        request.addValue("Bearer " + accessToken!, forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("Couldn't get response")
+                return
+            }
+            
+            switch httpResponse.statusCode {
+            case 200..<300:
+                print("Remote boombox successful")
+            case 401:
+                print("Unauthorized. Refreshing token...")
+                self.RefreshToken()
+                if retry {
+                    self.RemoteBoombox(vin: vin, retry: false)
+                }
             default:
                 print("Unexpected error. Code: \(httpResponse.statusCode)")
             }

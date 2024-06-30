@@ -49,9 +49,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             UIApplication.shared.open(appURL!, options: [:], completionHandler: nil)
             
             completionHandler()
-        }
+    }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         teslaApi.GetVehicles()
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification notificationData: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        if let aps = notificationData["custom-data"] as? [String: AnyObject] {
+            let vin = aps["vin"] as! String
+            
+            if aps["action"] as? String == "honk_horn" {
+                teslaApi.HonkHorn(vin: vin, retry: true)
+            }else if aps["action"] as? String == "flash_lights" {
+                teslaApi.FlashLights(vin: vin, retry: true)
+            }else if aps["action"] as? String == "remote_boombox" {
+                teslaApi.RemoteBoombox(vin: vin, retry: true)
+            }
+        }
+        
+        completionHandler(.newData)
     }
 }

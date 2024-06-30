@@ -38,19 +38,18 @@ struct VehiclesView: View {
                 List(self.appViewModel.vehicles, id: \.vin, selection: $selectedIndex)
                 { vehicle in
                     NavigationLink(destination: VehicleView(vehicle: vehicle,
-                                            teslaApi: self.teslaApi,
-                                                            sendPushNotification: Binding(
-                                                                get : { self.appViewModel.vehicleConfigs
-                                                                    .first(where: { $0.key == vehicle.vin })?.value.sendPushNotification ?? false },
-                                                                set: { newValue in
-                                                                    teslaApi.SetPushNotification(vin: vehicle.vin, status: newValue)
-                                                                    teslaApi.getConfig(vin: vehicle.vin)
-                                                                })
-                                                           )
-                        ) {
+                        teslaApi: self.teslaApi,
+                            vehicleConfig: Binding<VehicleConfig>(
+                                get: {self.appViewModel.vehicleConfigs[vehicle.vin] ?? VehicleConfig(vin: vehicle.vin, sendPushNotification: false, honkHorn: false, flashLights: false)},
+                                set: {
+                                    self.appViewModel.vehicleConfigs[vehicle.vin] = $0
+                                    teslaApi.SetConfig(vin: vehicle.vin, pushNotifications: $0.sendPushNotification, honkHorn: $0.honkHorn, flashLights: $0.flashLights)
+                                }
+                               )
+                               ), label: {
                         VehicleRow(vehicle: vehicle)
-                    }
-                }
+                    })
+               }
                 .refreshable {
                     self.teslaApi.GetVehicles()
                 }

@@ -15,7 +15,7 @@ struct Vehicle: Codable, Identifiable {
     let accessType: String
     let displayName: String
     let granularAccess: GranularAccess
-    let tokens: [String]
+    let tokens: [String]?
     let state: String
     let inService: Bool
     let idS: String?

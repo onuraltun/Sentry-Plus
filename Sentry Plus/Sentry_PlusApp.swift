@@ -11,12 +11,10 @@ import SwiftData
 @main
 struct Sentry_PlusApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    var appViewModel: AppViewModel
     var teslaApi: TeslaApi?
     
     init() {
-        appViewModel = AppViewModel()
-        teslaApi = TeslaApi(appViewModel: self.appViewModel)
+        teslaApi = TeslaApi()
     }
     
     var sharedModelContainer: ModelContainer = {
@@ -33,10 +31,10 @@ struct Sentry_PlusApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(teslaApi: self.teslaApi!)
-                .environmentObject(appViewModel)
+                .environmentObject(AppViewModel.shared)
                 .onAppear(){
                     Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { timer in
-                        if(appViewModel.accessToken.isEmpty)
+                        if(AppViewModel.shared.accessToken.isEmpty)
                         {
                             timer.invalidate()
                             return

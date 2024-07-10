@@ -9,6 +9,8 @@ import Foundation
 import Combine
 
 class AppViewModel: ObservableObject {
+    static let shared = AppViewModel()
+    
     @Published var accessToken: String = ""
     @Published var refreshToken: String = ""
     @Published var vehicles: [Vehicle] = []

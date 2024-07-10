@@ -11,7 +11,7 @@ import SwiftUI
 struct VehicleView: View {
     @EnvironmentObject var appViewModel: AppViewModel
     @State var vehicle: Vehicle
-    @State var teslaApi = TeslaApi(appViewModel: AppViewModel())
+    @State var teslaApi = TeslaApi()
     
     @Binding var vehicleConfig: VehicleConfig
     

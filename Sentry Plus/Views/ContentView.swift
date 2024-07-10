@@ -65,7 +65,7 @@ struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
         let appViewModel = AppViewModel()
-        let teslaApi = TeslaApi(appViewModel: appViewModel)
+        let teslaApi = TeslaApi()
         
         ContentView(teslaApi: teslaApi)
             .environmentObject(appViewModel)

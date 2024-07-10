@@ -10,15 +10,9 @@ import UIKit
 
 struct TeslaApi{
     
-    private let appViewModel: AppViewModel
-    
-    init(appViewModel: AppViewModel) {
-        self.appViewModel = appViewModel
-    }
-    
     func GetVehicles(saveApnc: Bool = false) {
         DispatchQueue.main.async {
-            self.appViewModel.isLoading = true
+            AppViewModel.shared.isLoading = true
         }
         
         let accessToken = UserDefaults.standard.string(forKey: "accessToken")
@@ -35,13 +29,13 @@ struct TeslaApi{
             ]
             
             DispatchQueue.main.async {
-                self.appViewModel.vehicles = vehicles
+                AppViewModel.shared.vehicles = vehicles
                 let jsonEncoder = JSONEncoder()
                 if let jsonData = try? jsonEncoder.encode(vehicles) {
                     UserDefaults.standard.set(jsonData, forKey: "vehicles")
                 }
-                self.appViewModel.sentryData["demo"] = sentryData
-                self.appViewModel.isLoading = false
+                AppViewModel.shared.sentryData["demo"] = sentryData
+                AppViewModel.shared.isLoading = false
             }
             
             return
@@ -49,7 +43,7 @@ struct TeslaApi{
         
         if accessToken == nil {
             print("Access token is nil")
-            self.appViewModel.vehicles = []
+            AppViewModel.shared.vehicles = []
             return
         }
         
@@ -58,7 +52,7 @@ struct TeslaApi{
         request.addValue("Bearer " + accessToken!, forHTTPHeaderField: "Authorization")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
-                self.appViewModel.isLoading = false
+                AppViewModel.shared.isLoading = false
             }
             
             if let error = error {
@@ -82,7 +76,7 @@ struct TeslaApi{
                     do {
                         let decodedVehicles = try JSONDecoder().decode([Vehicle].self, from: jsonData)
                         DispatchQueue.main.async {
-                            self.appViewModel.vehicles = decodedVehicles
+                            AppViewModel.shared.vehicles = decodedVehicles
                             UserDefaults.standard.set(jsonString, forKey: "vehicles")
                         }
                         
@@ -150,6 +144,14 @@ struct TeslaApi{
                         print("Error decoding JSON: \(error)")
                     }
                 }
+            case 401:
+                print("Refresh token expired. Logging out...")
+                DispatchQueue.main.async {
+                    self.logout()
+                    let alert = UIAlertController(title: "Error", message: "Your session has expired. Please login again.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
             default:
                 print("Unexpected error. Code: \(httpResponse.statusCode)")
             }
@@ -198,10 +200,10 @@ struct TeslaApi{
                     do {
                         let decodedSentryData = try decoder.decode([SentryData].self, from: jsonData)
                         DispatchQueue.main.async {
-                            if let index = self.appViewModel.sentryData.firstIndex(where: { $0.0 == vin }) {
-                                self.appViewModel.sentryData.values[index] = decodedSentryData
+                            if let index = AppViewModel.shared.sentryData.firstIndex(where: { $0.0 == vin }) {
+                                AppViewModel.shared.sentryData.values[index] = decodedSentryData
                             }else{
-                                self.appViewModel.sentryData[vin] = decodedSentryData
+                                AppViewModel.shared.sentryData[vin] = decodedSentryData
                             }
                         }
                     } catch {
@@ -255,13 +257,23 @@ struct TeslaApi{
         task.resume()
     }
     
-    func logout(accessToken: String?){
-        if( accessToken == nil || accessToken!.isEmpty ){
+    func logout(){
+        let accessToken = UserDefaults.standard.string(forKey: "accessToken")
+        
+        if(accessToken == nil || accessToken!.isEmpty ){
             print("Access token is nil or empty")
             return
         }
         
-        for vehicle in appViewModel.vehicles {
+        UserDefaults.standard.removeObject(forKey: "accessToken")
+        UserDefaults.standard.removeObject(forKey: "refreshToken")
+        
+        AppViewModel.shared.accessToken = ""
+        AppViewModel.shared.refreshToken = ""
+        AppViewModel.shared.vehicles.removeAll()
+        AppViewModel.shared.sentryData.removeAll()
+        
+        for vehicle in AppViewModel.shared.vehicles {
             let vin = vehicle.vin
             let logoutUrl = URL(string: "https://sentry-plus.com/api/logout/\(vin)")!
             
@@ -370,10 +382,10 @@ struct TeslaApi{
                     do {
                         let decodedConfig = try decoder.decode(VehicleConfig.self, from: jsonData)
                         DispatchQueue.main.async {
-                            if let index = self.appViewModel.vehicleConfigs.firstIndex(where: { $0.0 == vin }) {
-                                self.appViewModel.vehicleConfigs.values[index] = decodedConfig
+                            if let index = AppViewModel.shared.vehicleConfigs.firstIndex(where: { $0.0 == vin }) {
+                                AppViewModel.shared.vehicleConfigs.values[index] = decodedConfig
                             } else {
-                                self.appViewModel.vehicleConfigs[vin] = decodedConfig
+                                AppViewModel.shared.vehicleConfigs[vin] = decodedConfig
                             }
                         }
                     } catch {

@@ -11,8 +11,7 @@ import MessageUI
 import UIKit
 
 struct MenuView: View {
-    @EnvironmentObject var appViewModel: AppViewModel
-    @State private var teslaApi = TeslaApi(appViewModel: AppViewModel())
+    @State private var teslaApi = TeslaApi()
     
     var body: some View {
         HStack (alignment: .top, content: {
@@ -62,17 +61,7 @@ struct MenuView: View {
                     }
                     
                     Button(action: {
-                        let accessToken = UserDefaults.standard.string(forKey: "accessToken")
-                        teslaApi.logout(accessToken: accessToken ?? "")
-                        
-                        self.appViewModel.vehicles.removeAll()
-                        self.appViewModel.sentryData.removeAll()
-                        
-                        UserDefaults.standard.removeObject(forKey: "accessToken")
-                        UserDefaults.standard.removeObject(forKey: "refreshToken")
-                        
-                        self.appViewModel.accessToken = ""
-                        self.appViewModel.refreshToken = ""
+                        teslaApi.logout()
                     }) {
                         HStack {
                             Image(systemName: "lock.fill")

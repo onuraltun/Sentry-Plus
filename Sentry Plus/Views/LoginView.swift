@@ -105,7 +105,11 @@ struct LoginView:View {
                     print("Could not open Tesla app for add virtual key")
                     let alert = UIAlertController(title: "Error", message: "Could not open Tesla app for add virtual key", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                    //UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                       let window = windowScene.windows.first {
+                        window.rootViewController?.present(alert,animated: true, completion: nil)
+                    }
                 }
             })
         } else {

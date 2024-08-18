@@ -52,7 +52,7 @@ struct ContentView: View {
                                 }
                             }())
                             .offset(x: appViewModel.isMenuOpen ? 250 : 0, y: 0)
-                            .animation(.default)
+                            .animation(.default, value: 0)
                             .navigationBarTitle("Sentry Plus", displayMode: .inline)
                     }
                 }

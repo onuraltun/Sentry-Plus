@@ -18,7 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     
                     let alert = UIAlertController(title: "Error", message: "Push notification permission denied. Please enable push notifications in Settings for getting alerts.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                    // old code stays here
+                    //UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                    // fix ''windows' was deprecated in iOS 15.0: Use UIWindowScene.windows on a relevant window scene instead'
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                       let window = windowScene.windows.first {
+                        window.rootViewController?.present(alert,animated: true, completion: nil)
+                    }
                 }
             }
         }
@@ -40,7 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             print("Failed to register for push notifications: \(error.localizedDescription)")
             let alert = UIAlertController(title: "Error", message: "Failed to register for push notifications: \(error.localizedDescription). Please try again later.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+            //UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+            // fix warning
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let window = windowScene.windows.first {
+                window.rootViewController?.present(alert,animated: true, completion: nil)
+            }
         }
     }
     

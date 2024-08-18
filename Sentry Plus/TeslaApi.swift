@@ -150,7 +150,11 @@ struct TeslaApi{
                     self.logout()
                     let alert = UIAlertController(title: "Error", message: "Your session has expired. Please login again.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                    //UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                       let window = windowScene.windows.first {
+                        window.rootViewController?.present(alert,animated: true, completion: nil)
+                    }
                 }
             default:
                 print("Unexpected error. Code: \(httpResponse.statusCode)")

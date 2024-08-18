@@ -103,7 +103,8 @@ struct EventChart: View {
                                             date >= sentryData.createdAt && date <= (sentryData.finishedAt ?? Date())
                                         }) {
                                             self.selectedEvent = event
-                                            self.plotWidth = proxy.plotAreaSize.width
+                                            // fixed warning
+                                            self.plotWidth = proxy.plotSize.width
                                         }
                                     }
                                 }

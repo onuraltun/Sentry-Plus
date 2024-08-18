@@ -19,14 +19,19 @@ class MailComposeViewController: UIViewController, MFMailComposeViewControllerDe
     }
     
     func sendEmail() {
-        if MFMailComposeViewController.canSendMail() {
+        // MFMailComposeViewController.canSendMail() already declared in canSendMail()
+        if canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients([supportMail])
             mail.setSubject(supportMailSubject)
             mail.setMessageBody(getMailBody(), isHTML: false)
             
-            UIApplication.shared.windows.last?.rootViewController?.present(mail, animated: true, completion: nil)
+            //UIApplication.shared.windows.last?.rootViewController?.present(mail, animated: true, completion: nil)
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let window = windowScene.windows.last {
+                window.rootViewController?.present(mail,animated: true, completion: nil)
+            }
         } else {
             openMailApp()
         }

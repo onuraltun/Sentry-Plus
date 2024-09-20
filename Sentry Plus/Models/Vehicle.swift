@@ -12,7 +12,7 @@ struct Vehicle: Codable, Identifiable {
     let vehicleId: Int64
     let vin: String
     let color: String?
-    let accessType: String
+    let accessType: String?
     let displayName: String
     let granularAccess: GranularAccess
     let tokens: [String]?

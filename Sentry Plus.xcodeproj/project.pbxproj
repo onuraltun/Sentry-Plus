@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0809EA5F2BDFF463007521D6 /* SentryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0809EA5E2BDFF463007521D6 /* SentryData.swift */; };
 		0809EA742BE195D2007521D6 /* TimeSheetBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0809EA732BE195D2007521D6 /* TimeSheetBar.swift */; };
+		080EFAE32C9E255500D6FE8E /* ConfigureVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080EFAE22C9E254E00D6FE8E /* ConfigureVehicleView.swift */; };
 		080F3D312BD8DDF400D1A9DA /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080F3D302BD8DDF400D1A9DA /* MailComposeViewController.swift */; };
 		080F3D352BD9DC1900D1A9DA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 080F3D342BD9DC1900D1A9DA /* Launch Screen.storyboard */; };
 		080F3D372BDA53F200D1A9DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080F3D362BDA53F200D1A9DA /* ContentView.swift */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		0809EA5E2BDFF463007521D6 /* SentryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentryData.swift; sourceTree = "<group>"; };
 		0809EA732BE195D2007521D6 /* TimeSheetBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetBar.swift; sourceTree = "<group>"; };
+		080EFAE22C9E254E00D6FE8E /* ConfigureVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureVehicleView.swift; sourceTree = "<group>"; };
 		080F3D302BD8DDF400D1A9DA /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		080F3D342BD9DC1900D1A9DA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		080F3D362BDA53F200D1A9DA /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		08D326C32BD259A100791FF3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				080EFAE22C9E254E00D6FE8E /* ConfigureVehicleView.swift */,
 				0809EA732BE195D2007521D6 /* TimeSheetBar.swift */,
 				080F3D362BDA53F200D1A9DA /* ContentView.swift */,
 				08D326BE2BD254F600791FF3 /* LoginView.swift */,
@@ -275,7 +278,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					08AA07852BBBDFDF005B88D6 = {
 						CreatedOnToolsVersion = 15.3;
@@ -359,6 +362,7 @@
 				08D326D32BD273CE00791FF3 /* VehicleRow.swift in Sources */,
 				08AA078A2BBBDFDF005B88D6 /* Sentry_PlusApp.swift in Sources */,
 				08D326BB2BD0623200791FF3 /* TeslaToken.swift in Sources */,
+				080EFAE32C9E255500D6FE8E /* ConfigureVehicleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,7 +605,6 @@
 		08AA07B02BBBDFE3005B88D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -621,7 +624,6 @@
 		08AA07B12BBBDFE3005B88D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -641,7 +643,6 @@
 		08AA07B32BBBDFE3005B88D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GYNACX2BSZ;
@@ -659,7 +660,6 @@
 		08AA07B42BBBDFE3005B88D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GYNACX2BSZ;

@@ -16,8 +16,8 @@ struct EventChart: View {
     
     let colors: [String: Color] = [
         "Off": .gray,
-        "Idle": .yellow,
-        "Armed": .green,
+        "Idle": .blue,
+        "Armed": .orange,
         "Aware": .red
     ]
     
@@ -48,7 +48,7 @@ struct EventChart: View {
                     Plot {
                         BarMark(
                             xStart: .value("Started At", event.state == "Aware" && event.createdAt != event.finishedAt ?
-                                           event.createdAt.addingTimeInterval(-600) : event.createdAt),
+                                           event.createdAt.addingTimeInterval(-200) : event.createdAt),
                             xEnd: .value("Finished At", event.finishedAt ?? Date()),
                             y: .value("State", event.state)
                         )

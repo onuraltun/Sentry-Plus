@@ -9,16 +9,20 @@ import Foundation
 import SwiftUI
 
 struct VehicleRow: View {
-    var vehicle: Vehicle
-    
+    @EnvironmentObject var appViewModel: AppViewModel
+    @State var vehicle: Vehicle
+    @State var teslaApi = TeslaApi()
+
+    @Binding var vehicleConfig: VehicleConfig
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text(vehicle.displayName)
                     .font(.title)
-                
+
                 Spacer()
-                
+
                 HStack(alignment: .center) {
                     if vehicle.state == "asleep" {
                         Image(systemName: "powersleep")
@@ -33,7 +37,7 @@ struct VehicleRow: View {
             }
             .padding(.bottom)
             .padding(.top)
-            
+
             EventsChartView(vin: vehicle.vin)
                 .padding(.bottom)
         }

@@ -75,9 +75,7 @@ struct VehicleView: View {
                     .foregroundStyle(event.state == "Aware" ? .red : .primary)
                 }
             })
-        }).onAppear(){
-            teslaApi.getConfig(vin: vehicle.vin)
-        }
+        })
     }
 }
 

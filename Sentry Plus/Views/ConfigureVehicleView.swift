@@ -80,9 +80,11 @@ struct ConfigureVehicleView: View {
                 if vehicleConfig.configurationError == ""
                     || vehicleConfig.configurationError == nil
                 {
-                    Text(
-                        "Retrieving configuration information for your vehicle. Please wait..."
-                    )
+                    AnyView(
+                        ProgressView()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .padding(.top))
                 } else {
                     Text(
                         "There is an error connecting your vehicle. Please contact support. Error: \(vehicleConfig.configurationError ?? "")"

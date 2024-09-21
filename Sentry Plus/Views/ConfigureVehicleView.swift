@@ -34,7 +34,7 @@ struct ConfigureVehicleView: View {
                     .font(.headline)
 
                 Text(
-                    "In order to connect your vehicle, you must first add the Sentry Plus Key to your Tesla. After adding the key, you should see a success message similar to the one below."
+                    "In order to connect your vehicle, you must first add the Sentry Plus Key to your Tesla. After adding the key, you should see a success message similar to the one below. Make sure your car is reachable via the internet."
                 )
 
                 Image("ConfigSuccess")
@@ -59,7 +59,7 @@ struct ConfigureVehicleView: View {
                     EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
 
                 Text(
-                    "If you have already added the key, please try configuring it again using the button below."
+                    "If you have already added the key, please try registering it again using the button below."
                 )
 
                 Button(action: {
@@ -70,7 +70,7 @@ struct ConfigureVehicleView: View {
                         configuring = false
                     }
                 }) {
-                    Text(configuring ? "Configuring..." : "Configure")
+                    Text(configuring ? "Registering..." : "Register")
                         .padding()
                         .background(Color.blue)
                         .foregroundColor(.white)

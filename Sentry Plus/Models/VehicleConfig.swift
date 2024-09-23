@@ -7,23 +7,27 @@
 
 import Foundation
 
-struct VehicleConfig: Codable{
+struct VehicleConfig: Codable {
     let vin: String
     var sendPushNotification: Bool
     var honkHorn: Bool
     var flashLights: Bool
     var configured: Bool
     var configurationError: String?
-    
-    init(vin: String, sendPushNotification: Bool, honkHorn: Bool, flashLights: Bool) {
+
+    init(
+        vin: String, sendPushNotification: Bool, honkHorn: Bool,
+        flashLights: Bool, configured: Bool = false,
+        configurationError: String? = nil
+    ) {
         self.vin = vin
         self.sendPushNotification = sendPushNotification
         self.honkHorn = honkHorn
         self.flashLights = flashLights
-        self.configured = false
-        self.configurationError = nil
+        self.configured = configured
+        self.configurationError = configurationError
     }
-    
+
     enum CodingKeys: String, CodingKey {
         case vin
         case sendPushNotification

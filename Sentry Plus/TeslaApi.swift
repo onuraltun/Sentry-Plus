@@ -51,6 +51,23 @@ struct TeslaApi {
                 AppViewModel.shared.isLoading = false
             }
 
+            let demoVehicleConfig = VehicleConfig(
+                vin: "demo", sendPushNotification: false,
+                honkHorn: false, flashLights: false, configured: true,
+                configurationError: "")
+
+            DispatchQueue.main.async {
+                if let index = AppViewModel.shared.vehicleConfigs
+                    .firstIndex(where: { $0.0 == "demo" })
+                {
+                    AppViewModel.shared.vehicleConfigs.values[
+                        index] = demoVehicleConfig
+                } else {
+                    AppViewModel.shared.vehicleConfigs["demo"] =
+                        demoVehicleConfig
+                }
+            }
+
             return
         }
 
